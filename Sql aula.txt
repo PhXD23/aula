@@ -1,0 +1,18 @@
+CREATE TABLE Fornecedor (
+  idFornecedor INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  nomeFornecedor VARCHAR(60) NULL,
+  telefoneFornecedor VARCHAR(15) NULL,
+  emailFornecedor VARCHAR(70) NULL,
+  PRIMARY KEY(idFornecedor)
+);
+
+CREATE TABLE produto (
+  idproduto INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Fornecedor_idFornecedor INTEGER UNSIGNED NOT NULL,
+  nomeProduto VARCHAR(60) NULL,
+  quantidadeProduto INTEGER UNSIGNED NULL,
+  valorProduto FLOAT NULL,
+  PRIMARY KEY(idproduto),
+  INDEX produto_FKIndex1(Fornecedor_idFornecedor)
+);
+
