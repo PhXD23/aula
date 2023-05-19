@@ -1,0 +1,29 @@
+CREATE TABLE Fornecedor (
+  ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Fornecedor VARCHAR(100) NULL,
+  PRIMARY KEY(ID)
+);
+
+CREATE TABLE Fornecedor_has_Produto (
+  Fornecedor_ID INTEGER UNSIGNED NOT NULL,
+  Produto_ID INTEGER UNSIGNED NOT NULL,
+  PRIMARY KEY(Fornecedor_ID, Produto_ID),
+  INDEX Fornecedor_has_Produto_FKIndex1(Fornecedor_ID),
+  INDEX Fornecedor_has_Produto_FKIndex2(Produto_ID)
+);
+
+CREATE TABLE Loja (
+  ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Produto_ID INTEGER UNSIGNED NOT NULL,
+  Loja VARCHAR(100) NULL,
+  Preço FLOAT NULL,
+  PRIMARY KEY(ID),
+  INDEX Loja_FKIndex1(Produto_ID)
+);
+
+CREATE TABLE Produto (
+  ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  Produto VARCHAR(50) NULL,
+  PRIMARY KEY(ID)
+);
+
